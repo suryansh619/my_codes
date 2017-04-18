@@ -1,0 +1,51 @@
+#include<stdio.h>
+int main()
+{
+	while(1)
+	{
+		int t,i=0,n,a[1001],b[1001]={0},p=1,k=1,r=0;
+		scanf("%d",&t);
+		if(t==0)
+			break;
+		while(1)
+		{
+			if(r==t)
+				break;
+			if(b[k-1]==p)
+			{
+				p++;
+				k--;
+				continue;
+			}
+			scanf("%d",&n);
+			if(n!=p)
+			{
+				b[k]=n;
+				k++;
+				r++;
+			}
+			else
+			{
+				p++;
+				r++;
+			}
+		}
+		for(i=2;;i++)
+		{
+			if(b[i-1]==0)
+                {
+				     break;
+				}
+			if(b[i-1]<b[i])
+			{
+				r=-1;
+				break;
+			}	
+		}
+		if(r==-1)
+			printf("no\n");
+		else
+			printf("yes\n");
+	}
+	return 0;
+}
